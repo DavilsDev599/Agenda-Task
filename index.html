@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Agenda Task — App de Agendamentos</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+
+    <header class="app-header">
+      <img src="assets/logo.png" alt="Agenda Task" class="logo" />
+      <div class="brand">
+        <h1>AGENDA <span>TASK</span></h1>
+        <p class="tagline">Agendamentos simples e em tempo real</p>
+      </div>
+    </header>
+
+    <section id="screen-login" class="screen active" aria-labelledby="titulo-login">
+      <h2 id="titulo-login" class="screen-title">Entrar</h2>
+      <form id="login-form" class="card">
+        <label>Usuário
+          <input type="text" id="login-user" autocomplete="username" placeholder="seu.email@exemplo.com" required>
+        </label>
+        <label>Senha
+          <input type="password" id="login-pass" autocomplete="current-password" placeholder="••••••••" required>
+        </label>
+        <button class="btn primary" type="submit">
+          <i class="fa-solid fa-right-to-bracket"></i> Entrar
+        </button>
+      </form>
+    </section>
+
+    <section id="screen-home" class="screen" aria-labelledby="titulo-home">
+      <h2 id="titulo-home" class="screen-title">Minha Agenda</h2>
+      <div class="clock card">
+        <div class="clock-left">
+          <i class="fa-regular fa-calendar"></i>
+          <div>
+            <strong id="today-label">Hoje</strong>
+            <small id="today-date">--/--/----</small>
+          </div>
+        </div>
+        <div class="clock-right">
+          <span id="live-time">--:--:--</span>
+        </div>
+      </div>
+      <div class="filters">
+        <input type="date" id="filter-date">
+        <input type="search" id="filter-text" placeholder="Buscar compromisso">
+        <button id="btn-clear-filters" class="btn ghost"><i class="fa-solid fa-eraser"></i></button>
+      </div>
+      <div class="card" id="empty-state" hidden>
+        <p>Nenhum compromisso para este dia.</p>
+      </div>
+      <ul id="events-list" class="events"></ul>
+      <button id="btn-open-modal" class="fab" aria-label="Adicionar compromisso">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    </section>
+
+    <section id="screen-profile" class="screen" aria-labelledby="titulo-perfil">
+      <h2 id="titulo-perfil" class="screen-title">Meu Perfil</h2>
+      <div class="card profile-header">
+        <div class="profile-avatar">
+          <i class="fa-solid fa-user-tie"></i>
+        </div>
+        <div class="profile-info">
+          <input type="text" id="prof-name" placeholder="Seu Nome Profissional" class="input-minimal">
+          <input type="text" id="prof-category" placeholder="Ex: Designer, Barbeiro" class="input-minimal sub">
+        </div>
+      </div>
+      <div class="card" style="margin-top: 12px;">
+        <h3>Configurações de Horários</h3>
+        <div class="grid-2">
+          <label>Início
+            <input type="time" id="work-start" value="08:00">
+          </label>
+          <label>Fim
+            <input type="time" id="work-end" value="18:00">
+          </label>
+        </div>
+        <label>Valor da Sessão (R$)
+          <input type="number" id="prof-price" placeholder="0,00">
+        </label>
+        <button class="btn primary" id="btn-save-profile">
+          <i class="fa-solid fa-check"></i> Salvar Perfil
+        </button>
+      </div>
+    </section>
+
+    <nav class="tabbar">
+      <button class="tab active" data-screen="home"><i class="fa-solid fa-calendar-check"></i><span>Agenda</span></button>
+      <button class="tab" data-screen="profile"><i class="fa-solid fa-address-card"></i><span>Perfil</span></button>
+      <button class="tab" id="tab-add"><i class="fa-solid fa-circle-plus"></i><span>Novo</span></button>
+      <button class="tab" id="btn-logout"><i class="fa-solid fa-right-from-bracket"></i><span>Sair</span></button>
+    </nav>
+
+    <dialog id="event-modal">
+        <form method="dialog" id="event-form" class="modal-card">
+            <div class="modal-head">
+              <h3 id="modal-title">Novo compromisso</h3>
+              <button class="icon-btn" id="modal-close" type="button"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <label>Título <input type="text" id="event-title" required></label>
+            <div class="grid-2">
+              <label>Data <input type="date" id="event-date" required></label>
+              <label>Hora <input type="time" id="event-time" required></label>
+            </div>
+            <label>Descrição <textarea id="event-desc" rows="3"></textarea></label>
+            <div class="grid-2">
+              <button class="btn ghost" id="btn-delete" type="button">Excluir</button>
+              <button class="btn primary" type="submit">Salvar</button>
+            </div>
+            <input type="hidden" id="event-id">
+          </form>
+    </dialog>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

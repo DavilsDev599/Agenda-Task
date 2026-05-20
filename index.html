@@ -29,8 +29,48 @@
         <label>Senha
           <input type="password" id="login-pass" autocomplete="current-password" placeholder="••••••••" required>
         </label>
+        
+        <div style="text-align: right; margin-bottom: 20px;">
+          <span class="link-action" id="link-go-recover">Esqueceu a senha?</span>
+        </div>
+
         <button class="btn primary" type="submit">
           <i class="fa-solid fa-right-to-bracket"></i> Entrar
+        </button>
+      </form>
+    </section>
+
+    <section id="screen-recover" class="screen" aria-labelledby="titulo-recover">
+      <div class="back-link" id="btn-back-to-login">
+        <i class="fa-solid fa-arrow-left"></i> Voltar para o Login
+      </div>
+      
+      <h2 id="titulo-recover" class="screen-title">Recuperar Acesso</h2>
+      <p class="screen-subtitle">Insira o seu e-mail cadastrado para receber as instruções.</p>
+      
+      <form id="recover-form" class="card">
+        <label>E-mail
+          <input type="email" id="recover-email" placeholder="seu.email@exemplo.com" required>
+        </label>
+        <button class="btn primary" type="submit">
+          <i class="fa-solid fa-paper-plane"></i> Avançar
+        </button>
+      </form>
+    </section>
+
+    <section id="screen-new-password" class="screen" aria-labelledby="titulo-nova-senha">
+      <h2 id="titulo-nova-senha" class="screen-title">Criar Nova Senha</h2>
+      <p class="screen-subtitle">Escolha uma senha forte de acesso para proteger a sua agenda.</p>
+      
+      <form id="password-form" class="card">
+        <label>Nova Senha
+          <input type="password" id="new-pass" placeholder="••••••••" minlength="6" required>
+        </label>
+        <label>Confirmar Nova Senha
+          <input type="password" id="confirm-pass" placeholder="••••••••" minlength="6" required>
+        </label>
+        <button class="btn primary" type="submit">
+          <i class="fa-solid fa-lock"></i> Salvar Nova Senha
         </button>
       </form>
     </section>
@@ -58,9 +98,6 @@
         <p>Nenhum compromisso para este dia.</p>
       </div>
       <ul id="events-list" class="events"></ul>
-      <button id="btn-open-modal" class="fab" aria-label="Adicionar compromisso">
-        <i class="fa-solid fa-plus"></i>
-      </button>
     </section>
 
     <section id="screen-profile" class="screen" aria-labelledby="titulo-perfil">
@@ -94,32 +131,4 @@
     </section>
 
     <nav class="tabbar">
-      <button class="tab active" data-screen="home"><i class="fa-solid fa-calendar-check"></i><span>Agenda</span></button>
-      <button class="tab" data-screen="profile"><i class="fa-solid fa-address-card"></i><span>Perfil</span></button>
-      <button class="tab" id="tab-add"><i class="fa-solid fa-circle-plus"></i><span>Novo</span></button>
-      <button class="tab" id="btn-logout"><i class="fa-solid fa-right-from-bracket"></i><span>Sair</span></button>
-    </nav>
-
-    <dialog id="event-modal">
-        <form method="dialog" id="event-form" class="modal-card">
-            <div class="modal-head">
-              <h3 id="modal-title">Novo compromisso</h3>
-              <button class="icon-btn" id="modal-close" type="button"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <label>Título <input type="text" id="event-title" required></label>
-            <div class="grid-2">
-              <label>Data <input type="date" id="event-date" required></label>
-              <label>Hora <input type="time" id="event-time" required></label>
-            </div>
-            <label>Descrição <textarea id="event-desc" rows="3"></textarea></label>
-            <div class="grid-2">
-              <button class="btn ghost" id="btn-delete" type="button">Excluir</button>
-              <button class="btn primary" type="submit">Salvar</button>
-            </div>
-            <input type="hidden" id="event-id">
-          </form>
-    </dialog>
-  </main>
-  <script src="script.js"></script>
-</body>
-</html>
+      <button class="tab active" data-screen="home"><i class="fa-solid fa-calendar-check

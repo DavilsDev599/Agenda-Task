@@ -1,6 +1,4 @@
-/* ==========================================================================
-   AGENDA TASK - ESTILO COMPLETO (MOBILE-FIRST)
-   ========================================================================== */
+
 
 :root {
   --bg: #f7f9fc;
@@ -111,7 +109,7 @@ input:focus { border-color: var(--brand); outline: none; }
 .profile-header { display: flex; align-items: center; gap: 16px; }
 .profile-avatar {
   width: 65px; height: 65px;
-  flex-shrink: 0; /* IMPEDE QUE O FLEXBOX DEFORME O CÍRCULO PERFECTO */
+  flex-shrink: 0; 
   background: var(--line);
   border-radius: 50%;
   display: grid; place-items: center;

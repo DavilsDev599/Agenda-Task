@@ -1,0 +1,34 @@
+<section id="screen-recover" class="screen" aria-labelledby="titulo-recover">
+  <div class="back-link" onclick="show('login')">
+    <i class="fa-solid fa-arrow-left"></i> Voltar para o Login
+  </div>
+  
+  <h2 id="titulo-recover" class="screen-title">Recuperar Acesso</h2>
+  <p class="screen-subtitle">Insira o seu e-mail cadastrado para receber as instruções de recuperação.</p>
+  
+  <form id="recover-form" class="card">
+    <label>E-mail cadastrado
+      <input type="email" id="recover-email" placeholder="seu.email@exemplo.com" required>
+    </label>
+    <button class="btn primary" type="submit">
+      <i class="fa-solid fa-paper-plane"></i> Enviar Código
+    </button>
+  </form>
+</section>
+
+<section id="screen-new-password" class="screen" aria-labelledby="titulo-nova-senha">
+  <h2 id="titulo-nova-senha" class="screen-title">Criar Nova Senha</h2>
+  <p class="screen-subtitle">Escolha uma senha forte de acesso para proteger a sua agenda.</p>
+  
+  <form id="password-form" class="card">
+    <label>Nova Senha
+      <input type="password" id="new-pass" placeholder="••••••••" minlength="6" required>
+    </label>
+    <label>Confirmar Nova Senha
+      <input type="password" id="confirm-pass" placeholder="••••••••" minlength="6" required>
+    </label>
+    <button class="btn primary" type="submit">
+      <i class="fa-solid fa-lock"></i> Salvar Nova Senha
+    </button>
+  </form>
+</section>

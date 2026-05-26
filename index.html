@@ -32,8 +32,11 @@
         
         <div style="text-align: right; margin-bottom: 20px;">
           <span class="link-action" id="link-go-recover">Esqueceu a senha?</span>
+           <a href="Criar/criar.html" style="color: #FF6A00; text-decoration: none; font-size: 0.85rem; font-weight: 600;">Não tem uma conta? Cadastre-se</a>
         </div>
 
+      
+       
         <button class="btn primary" type="submit">
           <i class="fa-solid fa-right-to-bracket"></i> Entrar
         </button>
@@ -131,4 +134,55 @@
     </section>
 
     <nav class="tabbar">
-      <button class="tab active" data-screen="home"><i class="fa-solid fa-calendar-check
+      <button class="tab active" data-screen="home">
+        <i class="fa-solid fa-calendar-check"></i>
+        <span>Agenda</span>
+      </button>
+      <button class="tab" id="tab-add">
+        <i class="fa-solid fa-circle-plus"></i>
+        <span>Novo</span>
+      </button>
+      <button class="tab" data-screen="profile">
+        <i class="fa-solid fa-user"></i>
+        <span>Perfil</span>
+      </button>
+      <button class="tab" id="btn-logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Sair</span>
+      </button>
+    </nav>
+
+    <dialog id="event-modal">
+      <div class="modal-card">
+        <div class="modal-head">
+          <h3 id="modal-title">Novo compromisso</h3>
+          <button id="modal-close" class="icon-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <form id="event-form">
+          <input type="hidden" id="event-id">
+          <label>Título
+            <input type="text" id="event-title" required placeholder="Ex: Reunião com Cliente">
+          </label>
+          <div class="grid-2">
+            <label>Data
+              <input type="date" id="event-date" required>
+            </label>
+            <label>Hora
+              <input type="time" id="event-time" required>
+            </label>
+          </div>
+          <label>Descrição
+            <textarea id="event-desc" rows="3" placeholder="Detalhes adicionais (opcional)"></textarea>
+          </label>
+          <div class="grid-2">
+            <button type="button" id="btn-delete" class="btn ghost" style="color: #dc3545;">Excluir</button>
+            <button type="submit" class="btn primary">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -23,8 +23,8 @@
     <section id="screen-login" class="screen active" aria-labelledby="titulo-login">
       <h2 id="titulo-login" class="screen-title">Entrar</h2>
       <form id="login-form" class="card">
-        <label>Usuário
-          <input type="text" id="login-user" autocomplete="username" placeholder="seu.email@exemplo.com" required>
+        <label>Usuário / E-mail
+          <input type="email" id="login-user" autocomplete="username" placeholder="seu.email@exemplo.com" required>
         </label>
         <label>Senha
           <input type="password" id="login-pass" autocomplete="current-password" placeholder="••••••••" required>
@@ -32,19 +32,47 @@
         
         <div style="text-align: right; margin-bottom: 20px;">
           <span class="link-action" id="link-go-recover">Esqueceu a senha?</span>
-           <a href="Criar/criar.html" style="color: #FF6A00; text-decoration: none; font-size: 0.85rem; font-weight: 600;">Não tem uma conta? Cadastre-se</a>
         </div>
 
-      
-       
         <button class="btn primary" type="submit">
           <i class="fa-solid fa-right-to-bracket"></i> Entrar
+        </button>
+
+        <div style="text-align: center; margin-top: 20px;">
+          <p style="font-size: 0.9rem; color: var(--muted);">Não tem uma conta? <span class="link-action" id="link-go-register">Criar uma conta</span></p>
+        </div>
+      </form>
+    </section>
+
+    <section id="screen-register" class="screen" aria-labelledby="titulo-register">
+      <div class="back-link btn-back-to-login-class" id="btn-back-from-reg">
+        <i class="fa-solid fa-arrow-left"></i> Voltar para o Login
+      </div>
+      
+      <h2 id="titulo-register" class="screen-title">Criar Conta</h2>
+      <p class="screen-subtitle">Cadastre-se para começar a gerenciar seus agendamentos.</p>
+      
+      <form id="register-form" class="card">
+        <label>Seu Nome
+          <input type="text" id="register-name" placeholder="Ex: João Silva" required>
+        </label>
+        <label>E-mail (Será seu usuário)
+          <input type="email" id="register-email" placeholder="seu.email@exemplo.com" required>
+        </label>
+        <label>Senha
+          <input type="password" id="register-pass" placeholder="••••••••" minlength="6" required>
+        </label>
+        <label>Confirmar Senha
+          <input type="password" id="register-confirm-pass" placeholder="••••••••" minlength="6" required>
+        </label>
+        <button class="btn primary" type="submit">
+          <i class="fa-solid fa-user-plus"></i> Cadastrar e Entrar
         </button>
       </form>
     </section>
 
     <section id="screen-recover" class="screen" aria-labelledby="titulo-recover">
-      <div class="back-link" id="btn-back-to-login">
+      <div class="back-link btn-back-to-login-class">
         <i class="fa-solid fa-arrow-left"></i> Voltar para o Login
       </div>
       
@@ -134,55 +162,31 @@
     </section>
 
     <nav class="tabbar">
-      <button class="tab active" data-screen="home">
-        <i class="fa-solid fa-calendar-check"></i>
-        <span>Agenda</span>
-      </button>
-      <button class="tab" id="tab-add">
-        <i class="fa-solid fa-circle-plus"></i>
-        <span>Novo</span>
-      </button>
-      <button class="tab" data-screen="profile">
-        <i class="fa-solid fa-user"></i>
-        <span>Perfil</span>
-      </button>
-      <button class="tab" id="btn-logout">
-        <i class="fa-solid fa-right-from-bracket"></i>
-        <span>Sair</span>
-      </button>
+      <button class="tab active" data-screen="home"><i class="fa-solid fa-calendar-check"></i><span>Agenda</span></button>
+      <button class="tab" data-screen="profile"><i class="fa-solid fa-address-card"></i><span>Perfil</span></button>
+      <button class="tab" id="tab-add"><i class="fa-solid fa-circle-plus"></i><span>Novo</span></button>
+      <button class="tab" id="btn-logout"><i class="fa-solid fa-right-from-bracket"></i><span>Sair</span></button>
     </nav>
 
     <dialog id="event-modal">
-      <div class="modal-card">
+      <form method="dialog" id="event-form" class="modal-card">
         <div class="modal-head">
           <h3 id="modal-title">Novo compromisso</h3>
-          <button id="modal-close" class="icon-btn"><i class="fa-solid fa-xmark"></i></button>
+          <button class="icon-btn" id="modal-close" type="button"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <form id="event-form">
-          <input type="hidden" id="event-id">
-          <label>Título
-            <input type="text" id="event-title" required placeholder="Ex: Reunião com Cliente">
-          </label>
-          <div class="grid-2">
-            <label>Data
-              <input type="date" id="event-date" required>
-            </label>
-            <label>Hora
-              <input type="time" id="event-time" required>
-            </label>
-          </div>
-          <label>Descrição
-            <textarea id="event-desc" rows="3" placeholder="Detalhes adicionais (opcional)"></textarea>
-          </label>
-          <div class="grid-2">
-            <button type="button" id="btn-delete" class="btn ghost" style="color: #dc3545;">Excluir</button>
-            <button type="submit" class="btn primary">Salvar</button>
-          </div>
-        </form>
-      </div>
+        <label>Título <input type="text" id="event-title" required></label>
+        <div class="grid-2">
+          <label>Data <input type="date" id="event-date" required></label>
+          <label>Hora <input type="time" id="event-time" required></label>
+        </div>
+        <button class="btn primary" type="submit" style="margin-top: 15px;">
+          <i class="fa-solid fa-floppy-disk"></i> Salvar Compromisso
+        </button>
+      </form>
     </dialog>
 
   </main>
+
   <script src="script.js"></script>
 </body>
 </html>

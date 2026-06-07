@@ -1,4 +1,6 @@
-
+/* ==========================================================================
+   AGENDA TASK - ESTILO COMPLETO E UNIFICADO
+   ========================================================================== */
 
 :root {
   --bg: #f7f9fc;
@@ -28,7 +30,7 @@ body {
   align-items: center;
 }
 
-/* 📱 CONTENTOR PRINCIPAL (Simulação de Telemóvel) */
+/* CONTAINER PRINCIPAL (Simulação de Celular) */
 .app {
   width: 100%;
   max-width: 420px;
@@ -61,25 +63,25 @@ body {
 .brand h1 span { color: var(--brand); }
 .brand p { margin: 0; font-size: 0.75rem; color: var(--muted); }
 
-/* 📺 SISTEMA DE ECRÃS */
+/* SISTEMA DE TELAS */
 .screen {
   flex: 1;
   overflow-y: auto;
   padding: 20px;
-  padding-bottom: 100px; /* Espaço para a tabbar */
-  display: none;
+  padding-bottom: 100px;
+  display: none; 
 }
-.screen.active { display: block; animation: fadeIn 0.3s ease; }
+.screen.active { display: block; animation: fadeIn 0.3s ease-out; }
 
 @keyframes fadeIn { 
-  from { opacity: 0; transform: translateY(10px); } 
+  from { opacity: 0; transform: translateY(12px); } 
   to { opacity: 1; transform: translateY(0); } 
 }
 
 .screen-title { font-size: 1.5rem; margin-bottom: 20px; font-weight: 800; }
-.screen-subtitle { font-size: 0.9rem; color: var(--muted); margin-bottom: 24px; margin-top: -12px; }
+.screen-subtitle { font-size: 0.9rem; color: var(--muted); margin-bottom: 24px; margin-top: -12px; line-height: 1.4; }
 
-/* 💳 CARTÕES E FORMULÁRIOS */
+/* CARTÕES E FORMULÁRIOS */
 .card {
   background: var(--card);
   padding: 20px;
@@ -105,11 +107,12 @@ input:focus { border-color: var(--brand); outline: none; }
 
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
-/* 👤 PERFIL PROFISSIONAL */
+/* PERFIL PROFISSIONAL */
 .profile-header { display: flex; align-items: center; gap: 16px; }
 .profile-avatar {
-  width: 65px; height: 65px;
-  flex-shrink: 0; 
+  width: 65px;
+  height: 65px;
+  flex-shrink: 0;
   background: var(--line);
   border-radius: 50%;
   display: grid; place-items: center;
@@ -123,20 +126,22 @@ input:focus { border-color: var(--brand); outline: none; }
 }
 .input-minimal.sub { font-weight: 400; font-size: 0.95rem; color: var(--muted); }
 
-/* 🔗 LINKS INTERNOS E ELEMENTOS DE VOLTAR */
+/* LINKS INTERNOS E VOLTAR */
 .link-action {
   font-size: 0.85rem; color: var(--brand); font-weight: 600; cursor: pointer;
+  transition: text-decoration 0.2s;
 }
 .link-action:hover { text-decoration: underline; }
 
 .back-link {
-  display: inline-flex; align-items: center; gap: 6px;
+  display: inline-flex; align-items: center; gap: 8px;
   color: var(--muted); font-size: 0.9rem; font-weight: 600;
   margin-bottom: 20px; cursor: pointer;
+  transition: color 0.2s ease;
 }
 .back-link:hover { color: var(--brand); }
 
-/* 🔘 BOTÕES */
+/* BOTÕES */
 .btn {
   width: 100%; padding: 16px; border: none; border-radius: 15px;
   font-weight: 700; cursor: pointer; display: flex;
@@ -147,7 +152,7 @@ input:focus { border-color: var(--brand); outline: none; }
 .btn.primary:active { transform: scale(0.98); }
 .btn.ghost { background: var(--line); color: var(--ink); }
 
-/* 📅 COMPROMISSOS (AGENDA) */
+/* COMPROMISSOS (AGENDA) */
 .clock { display: flex; justify-content: space-between; padding: 15px; background: var(--ink); color: #fff; border-radius: 15px; align-items: center; }
 .clock-right { font-family: monospace; color: var(--brand); font-size: 1.2rem; }
 
@@ -168,7 +173,7 @@ input:focus { border-color: var(--brand); outline: none; }
 .event-meta { font-size: 0.85rem; color: var(--muted); margin-top: 6px; }
 .icon-btn { background: none; border: none; color: var(--muted); cursor: pointer; padding: 5px; }
 
-/* 🧭 BARRA DE NAVEGAÇÃO (TABBAR) */
+/* BARRA DE NAVEGAÇÃO (TABBAR) */
 .tabbar {
   position: absolute; bottom: 0; left: 0; right: 0; height: 75px;
   background: #fff; border-top: 1px solid var(--line);
@@ -176,7 +181,6 @@ input:focus { border-color: var(--brand); outline: none; }
   align-items: center; z-index: 100;
 }
 
-/* Mostrar tabbar apenas quando logado (Home ou Perfil ativo) */
 body:has(#screen-home.active) .tabbar,
 body:has(#screen-profile.active) .tabbar {
   display: grid;
@@ -193,7 +197,7 @@ body:has(#screen-profile.active) .tabbar {
 .tab span { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; }
 .tab.active { color: var(--brand); }
 
-/* 📦 MODAL / DIALOG */
+/* MODAL / DIALOG */
 dialog { border: none; border-radius: 24px; padding: 0; width: 90%; max-width: 400px; }
 dialog::backdrop { background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); }
 .modal-card { padding: 25px; }
